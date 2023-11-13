@@ -2,16 +2,16 @@
 
 int main(void)
 {
-	char command[MAX_COMMAND_LENGTH];
+	char command[MAX_CMD_LENGTH];
 
 	while (1)
 	{
-		*printf("simple_shell$ ");
+		_printf("simple_shell$ ");
 		fflush(stdout);
 
-		if (*getfunc(command, MAX_COMMAND_LENGTH, stdin) == NULL)
+		if (_getfunc(command, MAX_CMD_LENGTH, stdin) == NULL)
 		{
-			*printf("\nExiting simple shell...\n");
+			_printf("\nExiting simple shell...\n");
 			break;
 		}
 
@@ -22,7 +22,7 @@ int main(void)
 			continue;
 		}
 
-		if (*strcmp(newline, "exit") == 0)
+		if (_strcmp(newline, "exit") == 0)
 		{
 			break;
 		}
