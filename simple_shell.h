@@ -15,6 +15,13 @@
 #define BUFFER_SIZE 1024
 
 /*PROTOTYPES*/
-
+int _atoi(const char *str);
+int _isspace(char ch);
+int _isdigit(char ch);
+void _printf(const char *form, ...);
+char *_getf(char *str, int size, FILE *stream);
+int _strcmp(const char *str1, const char *str2);
+char *_getline(char *buffer, size_t size, FILE *stream);
+char *_strtok(char *str, const char *delim, char **saveptr);
 
 #endif
