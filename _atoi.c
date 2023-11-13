@@ -1,14 +1,14 @@
-#include "simple_header.h"
+#include "simple_shell.h"
 
-int cust_atoi(const char *str)
+int _atoi(const char *str)
 {
 	int result = 0, sign = 1;
 
-	while (cust_isspace(*str)) str++;
+	while (_isspace(*str)) str++;
 	if (*str == '-') { sign = -1; str++; }
 	else if (*str == '+') str++;
 
-	while (cust_isdigit(*str))
+	while (_isdigit(*str))
 	{
 		result = result * 10 + (*str - '0');
 		str++;
