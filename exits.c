@@ -1,51 +1,36 @@
 #include "simple_shell.h"
 
-int main(void)
-{
+int main(void) {
 	char command[MAX_CMD_LENGTH];
 
-	while (1)
-	{
+	while (1) {
 		_printf("simple_shell$ ");
 		fflush(stdout);
 
-		if (_getf(command, MAX_CMD_LENGTH, stdin) == NULL)
-		{
+		if (_getf(command, MAX_CMD_LENGTH, stdin) == NULL) {
 			_printf("\nExiting simple shell...\n");
 			break;
 		}
 
-		char *newline = strtok(command, "\n");
+		char *newline;
+			newline = strtok(command, "\n");
 
-		if (newline == NULL)
-		{
-			continue;
-		}
+		if (newline == NULL) continue;
 
-		if (_strcmp(newline, "exit") == 0)
-		{
-			break;
-		}
+		if (_strcmp(newline, "exit") == 0) break;
 
 		pid_t pid = fork();
 
-		if (pid < 0)
-		{
+		if (pid < 0) {
 			perror("FORK FAILED");
 			exit(1);
-		}
-		else if (pid == 0)
-		{
+		} else if (pid == 0) {
 			char *args[] = {newline, NULL};
-
-			if (execve(newline, args, NULL) == -1)
-			{
+			if (execve(newline, args, NULL) == -1) {
 				perror("execve");
 				exit(1);
 			}
-		}
-		else
-		{
+		} else {
 			int status;
 			waitpid(pid, &status, 0);
 		}
