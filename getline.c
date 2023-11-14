@@ -43,13 +43,17 @@ int main(void)
 		_printf("simple_shell$ ");
 		fflush(stdout);
 
-		if (*_getline(command, MAX_CMD_LENGTH, stdin) == NULL)
+		if (_getline(command, MAX_CMD_LENGTH, stdin) == NULL)
 		{
 			_printf("\nExiting simple shell...\n");
 			break;
 		}
 
-		char *newline = strtok(command, "\n");
+			char *newline = strtok(command, "\n");
+			if (newline != NULL)
+			{
+				char *args[] = {newline, NULL};
+			}
 
 		if (newline == NULL)
 			continue;
