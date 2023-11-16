@@ -10,6 +10,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <ctype.h>
 
 /*MACROS*/
 #define MAX_CMD_LENGTH 100

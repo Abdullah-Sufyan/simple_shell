@@ -12,23 +12,24 @@
 
 char *_getf(char *inputString, int maxSize, FILE *inputStream)
 {
+	int c;
+	int index = 0;
+
 	if (inputString == NULL || maxSize <= 0 || inputStream == NULL)
 	{
 		return (NULL);
 	}
 
-	int character;
-	int index = 0;
 
 	while (index < maxSize - 1)
 	{
-		character = getfc(inputStream);
-		if (character == EOF)
+		c = fgetc(inputStream);
+		if (c == EOF)
 		{
 			break;
 		}
 
-		inputString[index] = (char)character;
+		inputString[index] = (char)c;
 
 		if (inputString[index] == '\n')
 		{
@@ -41,7 +42,7 @@ char *_getf(char *inputString, int maxSize, FILE *inputStream)
 
 	inputString[index] = '\0';
 
-	if (index == 0 && character == EOF)
+	if (index == 0 && c == EOF)
 	{
 		return (NULL);
 	}
