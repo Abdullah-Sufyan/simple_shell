@@ -8,9 +8,9 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#include <string.h>
 #include <sys/stat.h>
 #include <ctype.h>
+#include <string.h>
 
 /*MACROS*/
 #define MAX_CMD_LENGTH 100
@@ -20,15 +20,15 @@ extern char **environ;
 
 /*PROTOTYPES & STRING HELPERS*/
 int _atoi(const char *inputString);
-int _isspace(char ch);
-int _isdigit(char ch);
+int _isspace(char c);
+int _isdigit(char c);
 void _printf(const char *form, ...);
 char *_getf(char *inputString, int maxSize, FILE *inputStream);
-int _strcmp(const char *str1, const char *str2);
+int _strcmp(const char *stringA, const char *stringB);
 char *_getline(char *buffer, size_t maxSize, FILE *inputStream);
 char *_strtok(char *inputString, const char *delim, char **saveptr);
-char *_strchr(char *s, char character);
-int _strlen(char *s);
+char *_strchr(const char *inputString, char character);
+int _strlen(const char *inputString);
 
 /*ENVIRON VARIABLES*/
 int _setenv(char **argv);
