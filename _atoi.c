@@ -1,17 +1,17 @@
 #include "simple_shell.h"
 
-int _atoi(const char *str)
+int _atoi(const char *inputString)
 {
 	int result = 0, sign = 1;
 
-	while (_isspace(*str)) str++;
-	if (*str == '-') { sign = -1; str++; }
-	else if (*str == '+') str++;
+	while (_isspace(*inputString)) inputString++;
+	if (*inputString == '-') { sign = -1; inputString++; }
+	else if (*inputString == '+') inputString++;
 
-	while (_isdigit(*str))
+	while (_isdigit(*inputString))
 	{
-		result = result * 10 + (*str - '0');
-		str++;
+		result = result * 10 + (*inputString - '0');
+		inputString++;
 	}
 
 	return (result * sign);
