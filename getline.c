@@ -15,6 +15,7 @@ char *_getline(char *buffer, size_t maxSize, FILE *inputStream)
 		if (buffer_position == 0)
 		{
 			ssize_t bytes_read = read(STDIN_FILENO, input_buffer, BUFFER_SIZE);
+
 			if (bytes_read <= 0)
 				return (NULL);
 
