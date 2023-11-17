@@ -5,7 +5,7 @@
  *
  * Return: Always 0
  */
-int main(void)
+int submain(void)
 {
 	char command[MAX_CMD_LENGTH];
 	char *newline;
@@ -16,7 +16,7 @@ int main(void)
 	_printf("simple_shell$ "); /* Print custom shell prompt */
 		fflush(stdout);
 
-		if (*_getf(command, MAX_CMD_LENGTH, stdin) == NULL)
+		if (_getf(command, MAX_CMD_LENGTH, stdin) == NULL)
 			/* Handle end of file condition (Ctrl+D) */
 			_printf("\nExiting simple shell...\n");
 		break;
@@ -24,7 +24,7 @@ int main(void)
 
 	newline = strtok(command, "\n");
 
-	if (newline == NULL)
+	while (newline == NULL)
 	{
 		continue;
 	}
@@ -42,7 +42,7 @@ int main(void)
 		}
 	}
 
-	if (_strcmp(newline, "exit") == 0)
+	while (_strcmp(newline, "exit") == 0)
 	{
 		/* User entered "exit" - exit the shell */
 		break;
@@ -60,7 +60,9 @@ int main(void)
 	{
 		/* In the child process */
 		/* Execute the command using execve */
-		char *args[] = {newline, NULL};
+		char *args[2];
+		args[0] = newline;
+		args[1] = NULL;
 
 		if (execve(newline, args, NULL) == -1)
 		{

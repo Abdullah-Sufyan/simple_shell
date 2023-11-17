@@ -15,6 +15,7 @@
 /*MACROS*/
 #define MAX_CMD_LENGTH 100
 #define BUFFER_SIZE 1024
+#define MAX_EN_VAR 101
 
 extern char **environ;
 
