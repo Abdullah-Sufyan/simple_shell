@@ -8,6 +8,7 @@
 void _printf(const char *form, ...)
 {
 	va_list args;
+
 	va_start(args, form);
 
 	while (*form)
@@ -19,11 +20,13 @@ void _printf(const char *form, ...)
 			if (*form == 'd')
 			{
 				int number = va_arg(args, int);
+
 				printf("%d", number);
 			}
 			else if (*form == 's')
 			{
 				char *inputString = va_arg(args, char *);
+
 				printf("%s", inputString);
 			}
 		}
