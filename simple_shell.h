@@ -19,6 +19,15 @@
 
 extern char **environ;
 
+/*OTHER INCLUDES AND DEFINITIONS*/
+typedef struct
+{
+	int cmdBufType;
+	int status;
+}
+info_t;
+
+
 /*PROTOTYPES & STRING HELPERS*/
 int _atoi(const char *inputString);
 int _isspace(char c);
@@ -36,6 +45,16 @@ int freePointer(void **pointer);
 char *_setMemory(char *memBlock, char byteVal, unsigned int bytesNum);
 void freeStringArray(char **strArray);
 void *_memrealloc(void *prevBlock, unsigned int prevSize, unsigned int newSize);
+void continueChain(info_t *info, char *buffer, size_t *pos,
+		size_t startIndex, size_t length);
+int replaceAlias(info_t *info);
+int replaceVariables(info_t *info);
+int replaceStr(char **oldStr, char *newStr);
+int display_history(info_t *info);
+int unset_alias(info_t *info, char *str);
+int set_alias(info_t *info, char *str);
+int print_alias(list_t *node);
+int manage_alias(info_t *info);
 
 /*ENVIRON VARIABLES*/
 int _setenv(char **argv);
