@@ -27,7 +27,7 @@ void _printf(const char *form, ...);
 char *_getf(char *inputString, int maxSize, FILE *inputStream);
 int _strcmp(const char *stringA, const char *stringB);
 char *_getline(char *buffer, size_t maxSize, FILE *inputStream);
-char *_strtok(char *inputString, const char *delim, char **saveptr);
+char *_strtok(char *inputString, const char *delimiter, char **pointer);
 char *_strchr(const char *inputString, char character);
 int _strlen(const char *inputString);
 
