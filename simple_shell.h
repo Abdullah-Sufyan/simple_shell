@@ -32,6 +32,10 @@ char *_strchr(const char *inputString, char character);
 int _strlen(const char *inputString);
 char *_strdup(const char *inputString);
 char *cmd_pathfinder(char *cmd);
+int freePointer(void **pointer);
+char *_setMemory(char *memBlock, char byteVal, unsigned int bytesNum);
+void freeStringArray(char **strArray);
+void *_memrealloc(void *prevBlock, unsigned int prevSize, unsigned int newSize);
 
 /*ENVIRON VARIABLES*/
 int _setenv(char **argv);
