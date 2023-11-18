@@ -1,7 +1,7 @@
 #include "simple_shell.h"
 
 /**
- * cust_strcmp - Compares two strings
+ * _strcmp - Compares two strings
  * @stringA: First string
  * @stringB: Second string
  *

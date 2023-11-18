@@ -1,5 +1,14 @@
 #include "simple_shell.h"
 
+/**
+ * _getline - Reads a line from an input stream and stores it in a buffer
+ * @buffer: Pointer to the buffer where the line will be stored
+ * @maxSize: Maximum number of characters to read into the buffer
+ * @inputStream: File stream from which to read the input
+ *
+ * Return: Pointer to the buffer containing the read line, or NULL on failure
+ */
+
 char *_getline(char *buffer, size_t maxSize, FILE *inputStream)
 {
 	int ch;
