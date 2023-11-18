@@ -30,6 +30,7 @@ char *_getline(char *buffer, size_t maxSize, FILE *inputStream);
 char *_strtok(char *inputString, const char *delimiter, char **pointer);
 char *_strchr(const char *inputString, char character);
 int _strlen(const char *inputString);
+char *_strdup(const char *inputString);
 char *cmd_pathfinder(char *cmd);
 
 /*ENVIRON VARIABLES*/

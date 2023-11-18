@@ -16,20 +16,19 @@ char *cmd_pathfinder(char *cmd)
 
 	while (path && *path)
 	{
-		char *token = path;
 		char *file_path;
 		size_t token_len = strcspn(path, ":");
 		size_t cmd_len = _strlen(cmd);
 
 		if (token_len == 0)
-			file_path = _strdup(cmd);
+			file_path = strdup(cmd);
 		else
 		{
 			file_path = malloc(token_len + cmd_len + 2);
 			if (!file_path)
 				return (NULL);
 
-			strncpy(file_path, token, token_len);
+			strncpy(file_path, path, token_len);
 			file_path[token_len] = '/';
 			strncpy(file_path + token_len + 1, cmd, cmd_len + 1);
 		}
@@ -43,7 +42,7 @@ char *cmd_pathfinder(char *cmd)
 	}
 
 	if (stat(cmd, &fileState) == 0)
-		return (_strdup(cmd));
+		return (strdup(cmd));
 
 	return (NULL);
 }

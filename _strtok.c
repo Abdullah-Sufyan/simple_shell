@@ -12,6 +12,8 @@
 
 char *_strtok(char *inputString, const char *delimiter, char **pointer)
 {
+	char *token;
+
 	if (inputString != NULL)
 		*pointer = inputString;
 	else
@@ -25,7 +27,7 @@ char *_strtok(char *inputString, const char *delimiter, char **pointer)
 		return (NULL);
 
 	/*Find the end of the token*/
-	char *token = inputString;
+	token = inputString;
 
 	while (*inputString && !strchr(delimiter, *inputString))
 		inputString++;
